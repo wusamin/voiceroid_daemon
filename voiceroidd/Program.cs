@@ -139,11 +139,11 @@ $@"コマンド
         /// </summary>
         private void StartServer()
         {
-#if DEBUG
+//#if DEBUG
             // Debugビルドの場合、ログファイルを出力する
             Trace.Listeners.Add(new TextWriterTraceListener("trace.log"));
             Trace.AutoFlush = true;
-#endif
+//#endif
 
             // AITalkを初期化する
             AitalkWrapper.Initialize(Config.InstallPath, Config.AuthCodeSeed);
@@ -191,7 +191,7 @@ $@"コマンド
                 {
                     notify_icon.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
                 }
-                notify_icon.Text = $"{Caption} : {Config.VoiceName}\nListening at {Config.ListeningAddress}";
+                notify_icon.Text = $"{Config.VoiceName}\nListening at {Config.ListeningAddress}";
                 notify_icon.Visible = true;
 
                 // トレイアイコンのコンテキストメニューを作成する
